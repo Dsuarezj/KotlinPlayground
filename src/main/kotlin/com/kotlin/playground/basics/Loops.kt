@@ -8,6 +8,16 @@ fun main(){
     for (i in range){
         println("i: $i")
     }
+
+    for(i in 0 .. 9){
+        println("range 0 .. 9  count: $i")
+        i
+    }
+
+    for (i in 0 until 10) {
+        println ("until 10 count: $i")
+    }
+
     val reverseRange = 10 downTo 1
     println(reverseRange)
 
