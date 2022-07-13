@@ -31,4 +31,23 @@ fun main(){
     for (i in reverseRangeWithSkip){
         println("i reverse: $i")
     }
+
+    exploreWhile()
+    exploreDoWhile()
+}
+
+fun exploreDoWhile() {
+    var x = 1
+    do {
+        println("do  while x < 5: $x" )
+        x++
+    } while (x < 5)
+}
+
+fun exploreWhile() {
+    var x = 1
+    while (x <5){
+        println("while x < 5: $x" )
+        x++
+    }
 }
