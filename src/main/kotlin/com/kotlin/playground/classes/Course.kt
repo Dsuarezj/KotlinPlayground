@@ -1,7 +1,14 @@
 package com.kotlin.playground.classes
 
 //Adding the data keyword will automatically generates the equals, hashCode and toString methods
-data class Course(val id: Int, val name: String)
+data class Course(val id: Int, val name: String, val courseCategory: CourseCategory = CourseCategory.DEVELOPMENT)
+
+enum class  CourseCategory {
+    DEVELOPMENT,
+    BUSINESS,
+    DESIGN,
+    MARKETING
+}
 
 fun main() {
     val course = Course(1, "aprendiendo algo")
@@ -13,4 +20,6 @@ fun main() {
 
     println(anotherCourse)
 
+    val marketingCourse = Course(1, "aprendiendo algo", CourseCategory.MARKETING)
+    println(marketingCourse)
 }
