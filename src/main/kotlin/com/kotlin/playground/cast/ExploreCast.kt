@@ -18,14 +18,15 @@ fun main(){
     checkType(course)
     checkType("THIS IS A STRING")
     castNumber(1.0)
-    // castNumber(1) // this will throw a type casting
+    castNumber(1)
     val number = 1
     println(castNumber(number.toDouble()))
 }
 
 fun castNumber(d: Any) {
     when(d){
-        d as Double -> println("value is double")
+        d as? Double -> println("value is double") // you can also use the safe operator in cast scenarios
+        d as? Int -> println("value is int")
     }
 
 }
