@@ -2,17 +2,29 @@ package com.kotlin.playground.nulls
 data class Movie(
     val id: Int?, val name: String
 )
+
+fun printName(name: String) {
+    println("Name is $name")
+}
+
 fun main() {
     var nameNullables: String? = null
+
+    // println(printName(nameNullables!!)) this will generate a null pointeer
+    nameNullables?.run {
+        printName(this)
+    }
     println("value is: $nameNullables")
     println("value is: ${nameNullables?.length}") // ? safe operator
     var length = nameNullables?.length
     println("length: ${length?.toLong()}") // null
     length = nameNullables?.length ?: 0 // ?:  elvis operator
     println("length: $length") // 0
-    nameNullables = "Algo"
+    nameNullables = "Algo ya no nulo"
+    nameNullables?.run {
+        printName(this)
+    }
     length = nameNullables.length // we don't need the safe operator in here due
-    println("length: $length") // 4
     println("length: $length") // 4
 
 
