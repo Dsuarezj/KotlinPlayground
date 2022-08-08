@@ -31,6 +31,28 @@ fun main() {
 
     val course = exploreFlatMap(courseList, KAFKA)
     println("courses filter: $course")
+
+    exploreHashMap()
+}
+
+fun exploreHashMap() {
+    val nameAge = mutableMapOf("dilip" to 33, "alice"  to 23)
+    nameAge.forEach{
+        (k,v) ->
+        println("key: $k, value: $v")
+    }
+    println(nameAge["alice"])
+    nameAge.getOrElse("Bob") {"default"}
+    println(nameAge.containsKey("abc"))
+
+    val filterMap = nameAge.filterKeys { it.endsWith("e") }
+        .map { it.key.uppercase() }
+
+    println("Filter hash map $filterMap")
+
+    val oldest = nameAge.maxByOrNull { it.value }
+    println("Oldest age $oldest")
+
 }
 
 fun exploreFlatMap(courseList: MutableList<Course>, topic: String): List<String> {
