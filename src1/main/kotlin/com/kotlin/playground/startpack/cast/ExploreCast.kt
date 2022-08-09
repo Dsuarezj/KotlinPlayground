@@ -1,0 +1,32 @@
+package com.kotlin.playground.startpack.cast
+
+import com.kotlin.playground.startpack.classes.Course
+import com.kotlin.playground.startpack.classes.CourseCategory
+
+fun checkType(type: Any) {
+    when (type) {
+        is Course -> {
+            println(type)
+        }
+        is String -> {
+            println(type.lowercase())
+        }
+    }
+}
+fun main(){
+    val course =  Course(1, "A", CourseCategory.DEVELOPMENT)
+    checkType(course)
+    checkType("THIS IS A STRING")
+    castNumber(1.0)
+    castNumber(1)
+    val number = 1
+    println(castNumber(number.toDouble()))
+}
+
+fun castNumber(d: Any) {
+    when(d){
+        d as? Double -> println("value is double") // you can also use the safe operator in cast scenarios
+        d as? Int -> println("value is int")
+    }
+
+}
