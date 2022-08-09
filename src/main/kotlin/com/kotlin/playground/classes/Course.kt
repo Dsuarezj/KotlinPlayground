@@ -1,7 +1,7 @@
 package com.kotlin.playground.classes
 
 //Adding the data keyword will automatically generates the equals, hashCode and toString methods
-data class Course(val id: Int, val name: String, val courseCategory: CourseCategory = CourseCategory.DEVELOPMENT)
+data class Course(val id: Int, val name: String, var courseCategory: CourseCategory = CourseCategory.DEVELOPMENT)
 
 enum class  CourseCategory {
     DEVELOPMENT,
