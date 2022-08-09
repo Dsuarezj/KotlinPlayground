@@ -8,6 +8,44 @@ fun main() {
     exploreAlso()
     exploreAlsoAndApply()
     exploreLet()
+    exploreWith()
+    exploreRun()
+}
+
+fun exploreRun() {
+    var numbers: MutableList<Int>? = null
+    val result = numbers.run {
+        numbers = mutableListOf(1, 2, 3, 4)
+        numbers?.sum()
+    }
+    println("run result is: $result")
+
+    // run some arbitary code and return the result
+    val length = run {
+        val name = "Alice"
+        println(name)
+        name.length
+    }
+    println("Run lenght is $length")
+}
+
+fun exploreWith() {
+    val numbers = mutableListOf(1, 2, 3, 4)
+    val result = with(numbers) {
+        println("size ${numbers.size}")
+        val list = numbers.plus(6)
+        list.sum()
+    }
+
+    println("result with = $result")
+    // since we are on the context we can rewrite like this
+    val result1 = with(numbers) {
+        println("size this refer numbers, but no neeed to be write it explicit: $size")
+       sum()
+    }
+
+    println("result with = $result1")
+
 }
 
 fun exploreLet() {
