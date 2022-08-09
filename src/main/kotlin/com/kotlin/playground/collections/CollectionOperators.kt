@@ -33,6 +33,21 @@ fun main() {
     println("courses filter: $course")
 
     exploreHashMap()
+    collectionNullability()
+}
+
+fun collectionNullability() {
+    var list: MutableList<String>? = null
+    list = mutableListOf()
+    list.add("Alice")
+    list.forEach {
+        println("value of nullable list: $it")
+    }
+
+    val listWithNullElements: List<String?> = listOf("Alice", null, "Bob")
+    listWithNullElements.forEach{
+        println("Length is: ${it?.length}")
+    }
 }
 
 fun exploreHashMap() {
